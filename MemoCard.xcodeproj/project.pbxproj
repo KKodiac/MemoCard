@@ -11,6 +11,8 @@
 		0B0CE95E296692BF00D8A3A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0CE95D296692BF00D8A3A7 /* ContentView.swift */; };
 		0B0CE960296692C000D8A3A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B0CE95F296692C000D8A3A7 /* Assets.xcassets */; };
 		0B0CE963296692C000D8A3A7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B0CE962296692C000D8A3A7 /* Preview Assets.xcassets */; };
+		0B0CE96B2966962A00D8A3A7 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0CE96A2966962A00D8A3A7 /* CameraService.swift */; };
+		0B0CE96D2966AF5B00D8A3A7 /* CameraService+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0CE96C2966AF5A00D8A3A7 /* CameraService+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		0B0CE95D296692BF00D8A3A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0B0CE95F296692C000D8A3A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B0CE962296692C000D8A3A7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0B0CE96A2966962A00D8A3A7 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
+		0B0CE96C2966AF5A00D8A3A7 /* CameraService+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraService+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,8 @@
 		0B0CE95A296692BF00D8A3A7 /* MemoCard */ = {
 			isa = PBXGroup;
 			children = (
+				0B0CE96C2966AF5A00D8A3A7 /* CameraService+Extensions.swift */,
+				0B0CE96A2966962A00D8A3A7 /* CameraService.swift */,
 				0B0CE95B296692BF00D8A3A7 /* MemoCardApp.swift */,
 				0B0CE95D296692BF00D8A3A7 /* ContentView.swift */,
 				0B0CE95F296692C000D8A3A7 /* Assets.xcassets */,
@@ -139,6 +145,8 @@
 			files = (
 				0B0CE95E296692BF00D8A3A7 /* ContentView.swift in Sources */,
 				0B0CE95C296692BF00D8A3A7 /* MemoCardApp.swift in Sources */,
+				0B0CE96D2966AF5B00D8A3A7 /* CameraService+Extensions.swift in Sources */,
+				0B0CE96B2966962A00D8A3A7 /* CameraService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,11 +278,15 @@
 				DEVELOPMENT_TEAM = LVBMDY357W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MemoCard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MemoCard;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires user to allow access to the camera module.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -282,9 +294,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.techeer.KKodiac.MemoCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -299,11 +314,15 @@
 				DEVELOPMENT_TEAM = LVBMDY357W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MemoCard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MemoCard;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires user to allow access to the camera module.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,9 +330,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.techeer.KKodiac.MemoCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
