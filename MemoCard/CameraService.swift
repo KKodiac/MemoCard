@@ -164,7 +164,7 @@ public final class CameraService: NSObject, ObservableObject {
         defer { session.commitConfiguration() }
         
         session.addOutput(currentSessionPhotoOutput)
-        // currentSessionPhotoOutput.maxPhotoDimensions = photoDimensions
+        // currentSessionPhotoOutput.maxPhotoDimensions =
         currentSessionPhotoOutput.isHighResolutionCaptureEnabled = true
         currentSessionPhotoOutput.maxPhotoQualityPrioritization = .quality
         let cameraOutput = currentSessionPhotoOutput.connection(with: .video)
@@ -227,6 +227,7 @@ public final class CameraService: NSObject, ObservableObject {
             self.results = results
         }
         textRecognitionRequest.recognitionLevel = recognitionLevel
+        textRecognitionRequest.recognitionLanguages = ["ko-KR", "en-US"]
         
         guard let image = UIImage(data: data) else { return }
         requestHandler = VNImageRequestHandler(cgImage: image.cgImage!, options: [:])
@@ -237,6 +238,11 @@ public final class CameraService: NSObject, ObservableObject {
         }
         
         logger.log("[CameraService]: Text recognition completed.")
-        logger.log("[Vision]: Number of VNRecognized texts: \(self.results!.count)")
+        self.results?.forEach {
+            $0.topCandidates(3).forEach { candidate in
+                logger.log("[Vision]: Number of VNRecognized texts: \(candidate.string)")
+            }
+        }
+        
     }
 }
