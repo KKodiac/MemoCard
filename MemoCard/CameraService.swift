@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVFoundation
+import Vision
 
 import os
 
@@ -52,17 +53,18 @@ public final class CameraService: NSObject, ObservableObject {
     }
     
     public static let shared = CameraService()
+    
     @Published public var error: CameraError?
     @Published public var currentImage: UIImage?
-    private let photoDimensions = CMVideoDimensions(width: 300, height: 200)
+    
+    // Pixel size of an average business card.
+    private let photoDimensions = CMVideoDimensions(width: 1050, height: 600)
     
     private let session = AVCaptureSession()
     private let sessionQueue = DispatchQueue(label: "com.seanhong.KKodiac.MemoCard.sessionQueue")
     private var currentSessionInput: AVCaptureInput?
     private let currentSessionOutput = AVCaptureVideoDataOutput()
     private let currentSessionPhotoOutput = AVCapturePhotoOutput()
-    
-    
     private var cameraStatus = CameraStatus.unconfigured
     
     private override init() {
@@ -207,9 +209,31 @@ public final class CameraService: NSObject, ObservableObject {
         logger.log("[CameraService]: Photo captured.")
     }
     
-    internal func performTextRecognition(with data: Data) {
-        guard UIImage(data: data) != nil else { return }
+    
+    // MARK: Vision Framework
+    var results: [VNRecognizedTextObservation]?
+    var requestHandler: VNImageRequestHandler?
+    var textRecognitionRequest: VNRecognizeTextRequest!
+    
+    internal func performTextRecognition(with data: Data, _ recognitionLevel: VNRequestTextRecognitionLevel) {
+        textRecognitionRequest = VNRecognizeTextRequest { (request, error) in
+            guard let results = request.results as? [VNRecognizedTextObservation] else {
+                logger.error("[Vision]: Unexpected type of text observation.")
+                return
+            }
+            self.results = results
+        }
+        textRecognitionRequest.recognitionLevel = recognitionLevel
+        
+        guard let image = UIImage(data: data) else { return }
+        requestHandler = VNImageRequestHandler(cgImage: image as! CGImage, options: [:])
+        do {
+            try requestHandler?.perform([textRecognitionRequest])
+        } catch {
+            logger.error("[Vision]: Unable to perform request.")
+        }
         
         logger.log("[CameraService]: Text recognition completed.")
+        logger.log("[Vision]: Number of VNRecognized texts: \(self.results!.count)")
     }
 }
