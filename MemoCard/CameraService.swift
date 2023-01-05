@@ -58,9 +58,10 @@ public final class CameraService: NSObject, ObservableObject {
     @Published public var currentImage: UIImage?
     
     // Pixel size of an average business card.
-    private let photoDimensions = CMVideoDimensions(width: 1050, height: 600)
+    // private let photoDimensions = CMVideoDimensions(width: 1050, height: 600)
+
     
-    private let session = AVCaptureSession()
+    let session = AVCaptureSession()
     private let sessionQueue = DispatchQueue(label: "com.seanhong.KKodiac.MemoCard.sessionQueue")
     private var currentSessionInput: AVCaptureInput?
     private let currentSessionOutput = AVCaptureVideoDataOutput()
@@ -76,6 +77,7 @@ public final class CameraService: NSObject, ObservableObject {
         checkPermissions()
         sessionQueue.async {
             self.configureCaptureSession()
+            self.start()
         }
     }
     
@@ -162,7 +164,8 @@ public final class CameraService: NSObject, ObservableObject {
         defer { session.commitConfiguration() }
         
         session.addOutput(currentSessionPhotoOutput)
-        currentSessionPhotoOutput.maxPhotoDimensions = photoDimensions
+        // currentSessionPhotoOutput.maxPhotoDimensions = photoDimensions
+        currentSessionPhotoOutput.isHighResolutionCaptureEnabled = true
         currentSessionPhotoOutput.maxPhotoQualityPrioritization = .quality
         let cameraOutput = currentSessionPhotoOutput.connection(with: .video)
         cameraOutput?.videoOrientation = .portrait
@@ -226,7 +229,7 @@ public final class CameraService: NSObject, ObservableObject {
         textRecognitionRequest.recognitionLevel = recognitionLevel
         
         guard let image = UIImage(data: data) else { return }
-        requestHandler = VNImageRequestHandler(cgImage: image as! CGImage, options: [:])
+        requestHandler = VNImageRequestHandler(cgImage: image.cgImage!, options: [:])
         do {
             try requestHandler?.perform([textRecognitionRequest])
         } catch {
