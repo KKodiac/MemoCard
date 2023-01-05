@@ -16,7 +16,7 @@ extension CameraService: AVCapturePhotoCaptureDelegate {
     public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         guard let data = photo.fileDataRepresentation() else { return }
         self.currentImage = UIImage(data: data)
-        self.performTextRecognition(with: data)
+        self.performTextRecognition(with: data, .accurate)
         logger.log("[CameraServiceDelegate]: didFinishProcessingPhoto complete.")
     }
 }
