@@ -5,10 +5,8 @@
 //  Created by Sean Hong on 2023/01/05.
 //
 
-import SwiftUI
 import AVFoundation
-import Vision
-
+import Combine
 import os
 
 private let logger = Logger(subsystem: "com.seanhong.KKodiac.MemoCard", category: "CameraService")
@@ -53,14 +51,9 @@ public final class CameraService: NSObject, ObservableObject {
     }
     
     public static let shared = CameraService()
-    
+    public let publisher = PassthroughSubject<[String], Never>()
     @Published public var error: CameraError?
-    @Published public var currentImage: UIImage?
-    
-    // Pixel size of an average business card.
-    // private let photoDimensions = CMVideoDimensions(width: 1050, height: 600)
 
-    
     let session = AVCaptureSession()
     private let sessionQueue = DispatchQueue(label: "com.seanhong.KKodiac.MemoCard.sessionQueue")
     private var currentSessionInput: AVCaptureInput?
@@ -164,7 +157,6 @@ public final class CameraService: NSObject, ObservableObject {
         defer { session.commitConfiguration() }
         
         session.addOutput(currentSessionPhotoOutput)
-        // currentSessionPhotoOutput.maxPhotoDimensions =
         currentSessionPhotoOutput.isHighResolutionCaptureEnabled = true
         currentSessionPhotoOutput.maxPhotoQualityPrioritization = .quality
         let cameraOutput = currentSessionPhotoOutput.connection(with: .video)
@@ -210,39 +202,5 @@ public final class CameraService: NSObject, ObservableObject {
         let photoSettings = AVCapturePhotoSettings()
         self.currentSessionPhotoOutput.capturePhoto(with: photoSettings, delegate: self)
         logger.log("[CameraService]: Photo captured.")
-    }
-    
-    
-    // MARK: Vision Framework
-    var results: [VNRecognizedTextObservation]?
-    var requestHandler: VNImageRequestHandler?
-    var textRecognitionRequest: VNRecognizeTextRequest!
-    
-    internal func performTextRecognition(with data: Data, _ recognitionLevel: VNRequestTextRecognitionLevel) {
-        textRecognitionRequest = VNRecognizeTextRequest { (request, error) in
-            guard let results = request.results as? [VNRecognizedTextObservation] else {
-                logger.error("[Vision]: Unexpected type of text observation.")
-                return
-            }
-            self.results = results
-        }
-        textRecognitionRequest.recognitionLevel = recognitionLevel
-        textRecognitionRequest.recognitionLanguages = ["ko-KR", "en-US"]
-        
-        guard let image = UIImage(data: data) else { return }
-        requestHandler = VNImageRequestHandler(cgImage: image.cgImage!, options: [:])
-        do {
-            try requestHandler?.perform([textRecognitionRequest])
-        } catch {
-            logger.error("[Vision]: Unable to perform request.")
-        }
-        
-        logger.log("[CameraService]: Text recognition completed.")
-        self.results?.forEach {
-            $0.topCandidates(3).forEach { candidate in
-                logger.log("[Vision]: Number of VNRecognized texts: \(candidate.string)")
-            }
-        }
-        
     }
 }

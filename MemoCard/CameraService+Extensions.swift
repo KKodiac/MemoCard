@@ -6,18 +6,16 @@
 //
 
 import AVFoundation
-import SwiftUI
-
-
 import os
 
 private let logger = Logger(subsystem: "com.seanhong.KKodiac.MemoCard", category: "CameraServiceDelegate")
 
 extension CameraService: AVCapturePhotoCaptureDelegate {
     public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        let ocrService = OCRService()
         guard let data = photo.fileDataRepresentation() else { return }
-        self.currentImage = UIImage(data: data)
-        self.performTextRecognition(with: data, .accurate)
         logger.log("[CameraServiceDelegate]: didFinishProcessingPhoto complete.")
+        let results = ocrService.performTextRecognition(with: data, as: .accurate)
+        self.publisher.send(results)
     }
 }

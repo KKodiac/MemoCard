@@ -9,15 +9,22 @@ import SwiftUI
 
 struct CameraView: View {
     @ObservedObject private var cameraViewModel = CameraViewModel()
+    @State private var isPresented = false
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea(.all)
             VStack {
                 CameraPreview(session: cameraViewModel.service.session)
-                Button(action: { cameraViewModel.capture() }, label: { Text("Capture")})
+                Button(action: {
+                    cameraViewModel.capture()
+                    isPresented.toggle()
+                }, label: { Text("Capture") })
+                .buttonStyle(.borderedProminent)
             }
         }
-        
+        .sheet(isPresented: $isPresented) {
+            ResultPreview(cameraViewModel: cameraViewModel)
+        }
     }
 }
 
