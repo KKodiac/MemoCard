@@ -13,7 +13,47 @@
 		0B0CE963296692C000D8A3A7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B0CE962296692C000D8A3A7 /* Preview Assets.xcassets */; };
 		0B0CE96B2966962A00D8A3A7 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0CE96A2966962A00D8A3A7 /* CameraService.swift */; };
 		0B0CE96D2966AF5B00D8A3A7 /* CameraService+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0CE96C2966AF5A00D8A3A7 /* CameraService+Extensions.swift */; };
+		0B8E17F32966C21F00780ADC /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E17F22966C21F00780ADC /* CameraViewModel.swift */; };
+		0B8E17F52966C5C400780ADC /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E17F42966C5C400780ADC /* CameraPreview.swift */; };
+		0B8E17F72966C88100780ADC /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E17F62966C88100780ADC /* CameraView.swift */; };
+		0BCF02E5297944E400F6F81B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BCF02B32979404300F6F81B /* WidgetKit.framework */; };
+		0BCF02E6297944E400F6F81B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BCF02B52979404300F6F81B /* SwiftUI.framework */; };
+		0BCF02E9297944E400F6F81B /* MemoCardWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF02E8297944E400F6F81B /* MemoCardWidgetBundle.swift */; };
+		0BCF02EB297944E400F6F81B /* MemoCardWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF02EA297944E400F6F81B /* MemoCardWidget.swift */; };
+		0BCF02ED297944E600F6F81B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BCF02EC297944E600F6F81B /* Assets.xcassets */; };
+		0BCF02F1297944E600F6F81B /* MemoCardWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0BCF02E4297944E400F6F81B /* MemoCardWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0BCF02F629794B6300F6F81B /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF02F529794B6300F6F81B /* CardModel.swift */; };
+		0BCF02F729794B6300F6F81B /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF02F529794B6300F6F81B /* CardModel.swift */; };
+		0BCF02FA2979506C00F6F81B /* MemoCardPersistence.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF02F82979506C00F6F81B /* MemoCardPersistence.xcdatamodeld */; };
+		0BCF02FB2979506C00F6F81B /* MemoCardPersistence.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF02F82979506C00F6F81B /* MemoCardPersistence.xcdatamodeld */; };
+		0BCF033F2979BF1900F6F81B /* ResultPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF033E2979BF1900F6F81B /* ResultPreview.swift */; };
+		0BCF03422979C23900F6F81B /* TextRecognizerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF03412979C23900F6F81B /* TextRecognizerViewModel.swift */; };
+		0BCF03432979C23900F6F81B /* TextRecognizerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF03412979C23900F6F81B /* TextRecognizerViewModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0BCF02EF297944E600F6F81B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B0CE950296692BF00D8A3A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0BCF02E3297944E400F6F81B;
+			remoteInfo = MemoCardWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0BCF02CA2979404600F6F81B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0BCF02F1297944E600F6F81B /* MemoCardWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0B0CE958296692BF00D8A3A7 /* MemoCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -23,6 +63,22 @@
 		0B0CE962296692C000D8A3A7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0B0CE96A2966962A00D8A3A7 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		0B0CE96C2966AF5A00D8A3A7 /* CameraService+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraService+Extensions.swift"; sourceTree = "<group>"; };
+		0B8E17F22966C21F00780ADC /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		0B8E17F42966C5C400780ADC /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		0B8E17F62966C88100780ADC /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		0BCF02B32979404300F6F81B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		0BCF02B52979404300F6F81B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		0BCF02E4297944E400F6F81B /* MemoCardWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MemoCardWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BCF02E8297944E400F6F81B /* MemoCardWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCardWidgetBundle.swift; sourceTree = "<group>"; };
+		0BCF02EA297944E400F6F81B /* MemoCardWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCardWidget.swift; sourceTree = "<group>"; };
+		0BCF02EC297944E600F6F81B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0BCF02EE297944E600F6F81B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0BCF02F529794B6300F6F81B /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		0BCF02F92979506C00F6F81B /* MemoCardPersistence.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MemoCardPersistence.xcdatamodel; sourceTree = "<group>"; };
+		0BCF033E2979BF1900F6F81B /* ResultPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPreview.swift; sourceTree = "<group>"; };
+		0BCF03412979C23900F6F81B /* TextRecognizerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizerViewModel.swift; sourceTree = "<group>"; };
+		0BCF03442979C87900F6F81B /* MemoCardWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MemoCardWidgetExtension.entitlements; sourceTree = "<group>"; };
+		0BCF03452979C89100F6F81B /* MemoCard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MemoCard.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,13 +89,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0BCF02E1297944E400F6F81B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BCF02E6297944E400F6F81B /* SwiftUI.framework in Frameworks */,
+				0BCF02E5297944E400F6F81B /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		0B0CE94F296692BF00D8A3A7 = {
 			isa = PBXGroup;
 			children = (
+				0BCF03442979C87900F6F81B /* MemoCardWidgetExtension.entitlements */,
+				0BCF02F82979506C00F6F81B /* MemoCardPersistence.xcdatamodeld */,
 				0B0CE95A296692BF00D8A3A7 /* MemoCard */,
+				0BCF02E7297944E400F6F81B /* MemoCardWidget */,
+				0BCF02B22979404300F6F81B /* Frameworks */,
 				0B0CE959296692BF00D8A3A7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				0B0CE958296692BF00D8A3A7 /* MemoCard.app */,
+				0BCF02E4297944E400F6F81B /* MemoCardWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -55,12 +125,18 @@
 		0B0CE95A296692BF00D8A3A7 /* MemoCard */ = {
 			isa = PBXGroup;
 			children = (
+				0BCF03452979C89100F6F81B /* MemoCard.entitlements */,
 				0B0CE96C2966AF5A00D8A3A7 /* CameraService+Extensions.swift */,
 				0B0CE96A2966962A00D8A3A7 /* CameraService.swift */,
+				0B8E17F62966C88100780ADC /* CameraView.swift */,
+				0B8E17F42966C5C400780ADC /* CameraPreview.swift */,
+				0B8E17F22966C21F00780ADC /* CameraViewModel.swift */,
 				0B0CE95B296692BF00D8A3A7 /* MemoCardApp.swift */,
 				0B0CE95D296692BF00D8A3A7 /* ContentView.swift */,
 				0B0CE95F296692C000D8A3A7 /* Assets.xcassets */,
 				0B0CE961296692C000D8A3A7 /* Preview Content */,
+				0BCF033E2979BF1900F6F81B /* ResultPreview.swift */,
+				0BCF03412979C23900F6F81B /* TextRecognizerViewModel.swift */,
 			);
 			path = MemoCard;
 			sourceTree = "<group>";
@@ -73,6 +149,27 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		0BCF02B22979404300F6F81B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0BCF02B32979404300F6F81B /* WidgetKit.framework */,
+				0BCF02B52979404300F6F81B /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0BCF02E7297944E400F6F81B /* MemoCardWidget */ = {
+			isa = PBXGroup;
+			children = (
+				0BCF02E8297944E400F6F81B /* MemoCardWidgetBundle.swift */,
+				0BCF02EA297944E400F6F81B /* MemoCardWidget.swift */,
+				0BCF02EC297944E600F6F81B /* Assets.xcassets */,
+				0BCF02EE297944E600F6F81B /* Info.plist */,
+				0BCF02F529794B6300F6F81B /* CardModel.swift */,
+			);
+			path = MemoCardWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,15 +180,34 @@
 				0B0CE954296692BF00D8A3A7 /* Sources */,
 				0B0CE955296692BF00D8A3A7 /* Frameworks */,
 				0B0CE956296692BF00D8A3A7 /* Resources */,
+				0BCF02CA2979404600F6F81B /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0BCF02F0297944E600F6F81B /* PBXTargetDependency */,
 			);
 			name = MemoCard;
 			productName = MemoCard;
 			productReference = 0B0CE958296692BF00D8A3A7 /* MemoCard.app */;
 			productType = "com.apple.product-type.application";
+		};
+		0BCF02E3297944E400F6F81B /* MemoCardWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0BCF02F2297944E600F6F81B /* Build configuration list for PBXNativeTarget "MemoCardWidgetExtension" */;
+			buildPhases = (
+				0BCF02E0297944E400F6F81B /* Sources */,
+				0BCF02E1297944E400F6F81B /* Frameworks */,
+				0BCF02E2297944E400F6F81B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MemoCardWidgetExtension;
+			productName = MemoCardWidgetExtension;
+			productReference = 0BCF02E4297944E400F6F81B /* MemoCardWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -104,6 +220,9 @@
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					0B0CE957296692BF00D8A3A7 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					0BCF02E3297944E400F6F81B = {
 						CreatedOnToolsVersion = 14.2;
 					};
 				};
@@ -122,6 +241,7 @@
 			projectRoot = "";
 			targets = (
 				0B0CE957296692BF00D8A3A7 /* MemoCard */,
+				0BCF02E3297944E400F6F81B /* MemoCardWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -136,6 +256,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0BCF02E2297944E400F6F81B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BCF02ED297944E600F6F81B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -143,14 +271,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BCF02FA2979506C00F6F81B /* MemoCardPersistence.xcdatamodeld in Sources */,
 				0B0CE95E296692BF00D8A3A7 /* ContentView.swift in Sources */,
+				0B8E17F72966C88100780ADC /* CameraView.swift in Sources */,
 				0B0CE95C296692BF00D8A3A7 /* MemoCardApp.swift in Sources */,
 				0B0CE96D2966AF5B00D8A3A7 /* CameraService+Extensions.swift in Sources */,
+				0BCF033F2979BF1900F6F81B /* ResultPreview.swift in Sources */,
+				0BCF03422979C23900F6F81B /* TextRecognizerViewModel.swift in Sources */,
+				0B8E17F52966C5C400780ADC /* CameraPreview.swift in Sources */,
+				0BCF02F629794B6300F6F81B /* CardModel.swift in Sources */,
+				0B8E17F32966C21F00780ADC /* CameraViewModel.swift in Sources */,
 				0B0CE96B2966962A00D8A3A7 /* CameraService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0BCF02E0297944E400F6F81B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BCF02E9297944E400F6F81B /* MemoCardWidgetBundle.swift in Sources */,
+				0BCF02EB297944E400F6F81B /* MemoCardWidget.swift in Sources */,
+				0BCF02FB2979506C00F6F81B /* MemoCardPersistence.xcdatamodeld in Sources */,
+				0BCF02F729794B6300F6F81B /* CardModel.swift in Sources */,
+				0BCF03432979C23900F6F81B /* TextRecognizerViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0BCF02F0297944E600F6F81B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0BCF02E3297944E400F6F81B /* MemoCardWidgetExtension */;
+			targetProxy = 0BCF02EF297944E600F6F81B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0B0CE964296692C000D8A3A7 /* Debug */ = {
@@ -270,8 +425,10 @@
 		0B0CE967296692C000D8A3A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MemoCard/MemoCard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MemoCard/Preview Content\"";
@@ -282,11 +439,11 @@
 				INFOPLIST_KEY_CFBundleDisplayName = MemoCard;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires user to allow access to the camera module.";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,8 +463,10 @@
 		0B0CE968296692C000D8A3A7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MemoCard/MemoCard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MemoCard/Preview Content\"";
@@ -318,11 +477,11 @@
 				INFOPLIST_KEY_CFBundleDisplayName = MemoCard;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires user to allow access to the camera module.";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -336,6 +495,62 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		0BCF02F3297944E600F6F81B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MemoCardWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LVBMDY357W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MemoCardWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MemoCardWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.techeer.KKodiac.MemoCard.MemoCardWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0BCF02F4297944E600F6F81B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MemoCardWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LVBMDY357W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MemoCardWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MemoCardWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.techeer.KKodiac.MemoCard.MemoCardWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -360,7 +575,30 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		0BCF02F2297944E600F6F81B /* Build configuration list for PBXNativeTarget "MemoCardWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BCF02F3297944E600F6F81B /* Debug */,
+				0BCF02F4297944E600F6F81B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0BCF02F82979506C00F6F81B /* MemoCardPersistence.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0BCF02F92979506C00F6F81B /* MemoCardPersistence.xcdatamodel */,
+			);
+			currentVersion = 0BCF02F92979506C00F6F81B /* MemoCardPersistence.xcdatamodel */;
+			name = MemoCardPersistence.xcdatamodeld;
+			path = ../../KKodiac.github.io/MemoCardPersistence.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0B0CE950296692BF00D8A3A7 /* Project object */;
 }
