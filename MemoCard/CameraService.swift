@@ -53,7 +53,7 @@ public final class CameraService: NSObject, ObservableObject {
     public static let shared = CameraService()
     public let publisher = PassthroughSubject<[String], Never>()
     @Published public var error: CameraError?
-
+    
     let session = AVCaptureSession()
     private let sessionQueue = DispatchQueue(label: "com.seanhong.KKodiac.MemoCard.sessionQueue")
     private var currentSessionInput: AVCaptureInput?

@@ -43,7 +43,7 @@ struct MemoCardEntry: TimelineEntry {
     let card: Card = CardMock().card
 }
 
-struct MemoCardWidgetEntryView : View {
+struct MemoCardWidgetEntryView: View {
     @Environment(\.widgetFamily) var family: WidgetFamily
     var entry: Provider.Entry
     
