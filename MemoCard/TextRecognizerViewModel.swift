@@ -40,6 +40,7 @@ final class OCRService: ObservableObject {
                 logger.log("[Vision]: Number of VNRecognized texts: \(candidate.string)")
             }
         }
+        
         return recognizedContent
     }
 }

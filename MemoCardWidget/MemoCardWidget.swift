@@ -40,7 +40,7 @@ struct Provider: TimelineProvider {
 
 struct MemoCardEntry: TimelineEntry {
     let date: Date
-    let card: Card = CardMock().card
+    let card: CardModel = CardMock().card
 }
 
 struct MemoCardWidgetEntryView: View {

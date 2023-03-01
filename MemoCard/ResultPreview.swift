@@ -8,84 +8,17 @@
 import SwiftUI
 
 struct ResultPreview: View {
-    @ObservedObject var cameraViewModel: CameraViewModel
-    @State var results: [String] = []
-    @State private var name: String = "Name"
-    @State private var jobTitle: String = "Job Title"
-    @State private var jobDetail: String = "Job Detail"
-    @State private var phone: String = "Phone Number"
-    @State private var email: String = "Email"
-    @State private var address: String = "Address"
-    
+    @ObservedObject var cameraViewModel: Camera.ViewModel
+    @State private var results: [String] = []
     var body: some View {
         ZStack {
             VStack {
-                RoundedRectangle(cornerRadius: 20, style: .circular)
-                    .fill(.cyan)
-                    .opacity(0.3)
-                    .shadow(radius: 50, x: 5, y: 5)
-                    .frame(maxHeight: 200)
-                    .overlay(alignment: .topLeading) {
-                        GeometryReader { geometry in
-                            HStack(alignment: .top) {
-                                VStack(alignment: .leading) {
-                                    Text("\(name)").font(.title)
-                                        .dropDestination(for: TextItem.self) { items, location in
-                                            name = items.first?.text ?? "Name"
-                                            return true
-                                        }
-                                    Spacer()
-                                    Text("\(jobTitle)")
-                                        .dropDestination(for: TextItem.self) { items, location in
-                                            jobTitle = items.first?.text ?? "Job Title"
-                                            return true
-                                        }
-                                    Text("\(jobDetail)")
-                                        .dropDestination(for: TextItem.self) { items, location in
-                                            jobDetail = items.first?.text ?? "Job Detail"
-                                            return true
-                                        }
-                                }
-                                Spacer()
-                                HStack {
-                                    Spacer()
-                                    VStack(alignment: .trailing) {
-                                        Spacer()
-                                        Text("\(phone)")
-                                            .dropDestination(for: TextItem.self) { items, location in
-                                                phone = items.first?.text ?? "Phone Number"
-                                                return true
-                                            }
-                                        Text("\(email)")
-                                            .dropDestination(for: TextItem.self) { items, location in
-                                                email = items.first?.text ?? "Email"
-                                                return true
-                                            }
-                                        Text("\(address)")
-                                            .dropDestination(for: TextItem.self) { items, location in
-                                                address = items.first?.text ?? "Address"
-                                                return true
-                                            }
-                                    }
-                                }
-                            }
-                            .padding()
-                            .padding()
-                            .frame(width: geometry.size.width, height: geometry.size.height)
-                        }
-                    }.padding()
-                List($results, id: \.self) { result in
-                    TextField("Instructions", text: result)
-                        .draggable(TextItem(text: result.wrappedValue))
-                    
-                }
-                .onReceive(cameraViewModel.service.publisher, perform: { (output: [String]) in
-                    self.results = output
-                })
+                cardView()
+                resultList()
             }
             VStack {
                 Spacer()
-                Button(action: { print("\(name)") }, label: {
+                Button(action: { print("\(cameraViewModel.card.name)") }, label: {
                     HStack{
                         Spacer()
                         Text("Submit").padding()
@@ -99,19 +32,92 @@ struct ResultPreview: View {
     }
 }
 
-struct TextItem: Identifiable, Codable {
-    var id: UUID = UUID()
-    var text: String
+extension ResultPreview {
+    private func cardView() -> some View {
+        RoundedRectangle(cornerRadius: 20, style: .circular)
+            .fill(.cyan)
+            .opacity(0.3)
+            .shadow(radius: 50, x: 5, y: 5)
+            .frame(maxHeight: 200)
+            .overlay(alignment: .topLeading) {
+                GeometryReader { geometry in
+                    HStack(alignment: .top) {
+                        VStack(alignment: .leading) {
+                            Text("\(cameraViewModel.card.name)").font(.title)
+                                .dropDestination(for: TextItem.self) { items, location in
+                                    cameraViewModel.card.name = items.first?.text ?? "Name"
+                                    return true
+                                }
+                            Spacer()
+                            Text("\(cameraViewModel.card.title)")
+                                .dropDestination(for: TextItem.self) { items, location in
+                                    cameraViewModel.card.title = items.first?.text ?? "Title"
+                                    return true
+                                }
+                            Text("\(cameraViewModel.card.subtitle)")
+                                .dropDestination(for: TextItem.self) { items, location in
+                                    cameraViewModel.card.subtitle = items.first?.text ?? "Subtitle"
+                                    return true
+                                }
+                        }
+                        Spacer()
+                        HStack {
+                            Spacer()
+                            VStack(alignment: .trailing) {
+                                Spacer()
+                                Text("\(cameraViewModel.card.phone)")
+                                    .dropDestination(for: TextItem.self) { items, location in
+                                        cameraViewModel.card.phone = items.first?.text ?? "Phone Number"
+                                        return true
+                                    }
+                                Text("\(cameraViewModel.card.email)")
+                                    .dropDestination(for: TextItem.self) { items, location in
+                                        cameraViewModel.card.email = items.first?.text ?? "Email"
+                                        return true
+                                    }
+                                Text("\(cameraViewModel.card.address)")
+                                    .dropDestination(for: TextItem.self) { items, location in
+                                        cameraViewModel.card.address = items.first?.text ?? "Address"
+                                        return true
+                                    }
+                            }
+                        }
+                    }
+                    .padding()
+                    .padding()
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                }
+            }.padding()
+    }
+    
+    private func resultList() -> some View {
+        List($results, id: \.self) { result in
+            TextField("Instructions", text: result)
+                .draggable(TextItem(text: result.wrappedValue))
+        }
+        .onReceive(cameraViewModel.service.publisher, perform: { (output: [String]) in
+            self.results = output
+        })
+    }
 }
 
-extension TextItem: Transferable {
+
+// MARK: Transferable
+extension ResultPreview {
+    struct TextItem: Identifiable, Codable {
+        var id: UUID = UUID()
+        var text: String
+    }
+}
+
+extension ResultPreview.TextItem: Transferable {
     static var transferRepresentation: some TransferRepresentation {
-        CodableRepresentation(for: TextItem.self, contentType: .text)
+        CodableRepresentation(for: ResultPreview.TextItem.self, contentType: .text)
     }
 }
 
 struct ResultPreview_Previews: PreviewProvider {
     static var previews: some View {
-        ResultPreview(cameraViewModel: CameraViewModel())
+        ResultPreview(cameraViewModel: Camera.ViewModel.init())
     }
 }

@@ -7,14 +7,38 @@
 
 import Foundation
 
-struct Card {
-    let name: String
-    let company: String
-    let phone: String
-    let email: String
-    let imageURL: String
+struct CardModel {
+    var name: String
+    var title: String
+    var subtitle: String
+    var company: String
+    var phone: String
+    var email: String
+    var address: String
+    var imageURL: String?
+    
+    init(name: String = "Name",
+         title: String = "Title",
+         subtitle: String = "Subtitle",
+         company: String = "Company",
+         phone: String = "Phone",
+         email: String = "Email",
+         address: String = "Address",
+         imageURL: String? = nil) {
+        self.name = name
+        self.title = title
+        self.subtitle = subtitle
+        self.company = company
+        self.phone = phone
+        self.email = email
+        self.address = address
+        self.imageURL = imageURL
+    }
 }
 
-struct CardMock {
-    let card = Card(name: "Sammy", company: "Apple", phone: "010-1234-5678", email: "email.@mail.com", imageURL: "My Image")
+
+extension CardModel {
+    static func mock() -> Self {
+        return CardModel()
+    }
 }

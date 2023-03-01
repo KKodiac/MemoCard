@@ -13,11 +13,15 @@ import os
 
 private let logger = Logger(subsystem: "com.seanhong.KKodiac.MemoCard", category: "CameraViewModel")
 
-class CameraViewModel: ObservableObject {
-    var service: CameraService = CameraService.shared
-    private var subscriptions = Set<AnyCancellable>()
-    
-    func capture() {
-        service.capture()
+extension Camera {
+    final class ViewModel: ObservableObject {
+        var service: CameraService = CameraService.shared
+        private var subscriptions = Set<AnyCancellable>()
+        @Published var results: [String] = []
+        @Published var card: CardModel = CardModel()
+        
+        func capture() {
+            service.capture()
+        }
     }
 }

@@ -7,29 +7,29 @@
 
 import SwiftUI
 
-struct CameraView: View {
-    @ObservedObject private var cameraViewModel = CameraViewModel()
+struct Camera: View {
+    @StateObject private var viewModel: ViewModel = .init()
     @State private var isPresented = false
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea(.all)
             VStack {
-                CameraPreview(session: cameraViewModel.service.session)
+                CameraPreview(session: viewModel.service.session)
                 Button(action: {
-                    cameraViewModel.capture()
+                    viewModel.capture()
                     isPresented.toggle()
                 }, label: { Text("Capture") })
                 .buttonStyle(.borderedProminent)
             }
         }
         .sheet(isPresented: $isPresented) {
-            ResultPreview(cameraViewModel: cameraViewModel)
+            ResultPreview(cameraViewModel: viewModel)
         }
     }
 }
 
 struct CameraView_Previews: PreviewProvider {
     static var previews: some View {
-        CameraView()
+        Camera()
     }
 }
