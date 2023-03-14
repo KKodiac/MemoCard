@@ -5,16 +5,14 @@
 # MemoCard
 <br />
 
-    App for storing paper business cards. 
-    Working mainly to try out WidgetKit and Vision Framework with Core Data.
-
-https://user-images.githubusercontent.com/35219323/213551785-3de7be18-2904-43af-9eea-ebce9f5e5733.mov
+App for storing paper business cards. 
+Working mainly to try out WidgetKit and Vision Framework with Core Data.
 
 
 ## Features
 
 - [x] OCR with Vision Framework
-- [ ] WidgetKit working with Core Data
+- [x] WidgetKit working with Core Data
 - [ ] Better UI
 
 ## Requirements
