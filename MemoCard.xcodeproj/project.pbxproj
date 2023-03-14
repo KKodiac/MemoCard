@@ -29,6 +29,13 @@
 		0BCF03432979C23900F6F81B /* TextRecognizerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF03412979C23900F6F81B /* TextRecognizerViewModel.swift */; };
 		0BE8923929AF60910051D64E /* CorePersistence.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0BE8923729AF60910051D64E /* CorePersistence.xcdatamodeld */; };
 		0BE8923B29AF612A0051D64E /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE8923A29AF612A0051D64E /* CoreDataService.swift */; };
+		0BEACD7B29BF1B2F004413B0 /* CorePersistence.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0BE8923729AF60910051D64E /* CorePersistence.xcdatamodeld */; };
+		0BEACD7C29BF1B31004413B0 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE8923A29AF612A0051D64E /* CoreDataService.swift */; };
+		0BEACD7D29BF5CC5004413B0 /* MemoCardWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF02EA297944E400F6F81B /* MemoCardWidget.swift */; };
+		0BEACD7F29BF68E7004413B0 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEACD7E29BF68E7004413B0 /* Contact.swift */; };
+		0BEACD8129BF6ADB004413B0 /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEACD8029BF6ADB004413B0 /* ContactViewModel.swift */; };
+		0BEACD8329C0539F004413B0 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEACD8229C0539F004413B0 /* Color+Extensions.swift */; };
+		0BEACD8429C0539F004413B0 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEACD8229C0539F004413B0 /* Color+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,8 +84,11 @@
 		0BCF033E2979BF1900F6F81B /* ResultPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPreview.swift; sourceTree = "<group>"; };
 		0BCF03412979C23900F6F81B /* TextRecognizerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizerViewModel.swift; sourceTree = "<group>"; };
 		0BCF03452979C89100F6F81B /* MemoCard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MemoCard.entitlements; sourceTree = "<group>"; };
-		0BE8923829AF60910051D64E /* CorePersistence.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CorePersistence.xcdatamodel; sourceTree = "<group>"; };
+		0BE8923829AF60910051D64E /*  */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodeld; name = ""; sourceTree = "<group>"; };
 		0BE8923A29AF612A0051D64E /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		0BEACD7E29BF68E7004413B0 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		0BEACD8029BF6ADB004413B0 /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
+		0BEACD8229C0539F004413B0 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +114,7 @@
 		0B0CE94F296692BF00D8A3A7 = {
 			isa = PBXGroup;
 			children = (
+				0BEACD7A29BF1AF0004413B0 /* Shared */,
 				0B0CE95A296692BF00D8A3A7 /* MemoCard */,
 				0BCF02E7297944E400F6F81B /* MemoCardWidget */,
 				0BCF02B22979404300F6F81B /* Frameworks */,
@@ -131,12 +142,12 @@
 				0B8E17F22966C21F00780ADC /* CameraViewModel.swift */,
 				0B0CE95B296692BF00D8A3A7 /* MemoCardApp.swift */,
 				0B0CE95D296692BF00D8A3A7 /* ContentView.swift */,
+				0BEACD7E29BF68E7004413B0 /* Contact.swift */,
 				0BCF03412979C23900F6F81B /* TextRecognizerViewModel.swift */,
 				0BCF033E2979BF1900F6F81B /* ResultPreview.swift */,
 				0B0CE95F296692C000D8A3A7 /* Assets.xcassets */,
-				0BE8923729AF60910051D64E /* CorePersistence.xcdatamodeld */,
-				0BE8923A29AF612A0051D64E /* CoreDataService.swift */,
 				0B0CE961296692C000D8A3A7 /* Preview Content */,
+				0BEACD8029BF6ADB004413B0 /* ContactViewModel.swift */,
 			);
 			path = MemoCard;
 			sourceTree = "<group>";
@@ -165,9 +176,19 @@
 				0BCF02EA297944E400F6F81B /* MemoCardWidget.swift */,
 				0BCF02EC297944E600F6F81B /* Assets.xcassets */,
 				0BCF02EE297944E600F6F81B /* Info.plist */,
-				0BCF02F529794B6300F6F81B /* CardModel.swift */,
 			);
 			path = MemoCardWidget;
+			sourceTree = "<group>";
+		};
+		0BEACD7A29BF1AF0004413B0 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				0BE8923729AF60910051D64E /* CorePersistence.xcdatamodeld */,
+				0BE8923A29AF612A0051D64E /* CoreDataService.swift */,
+				0BCF02F529794B6300F6F81B /* CardModel.swift */,
+				0BEACD8229C0539F004413B0 /* Color+Extensions.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,9 +297,13 @@
 				0B8E17F72966C88100780ADC /* CameraView.swift in Sources */,
 				0BE8923929AF60910051D64E /* CorePersistence.xcdatamodeld in Sources */,
 				0B0CE95C296692BF00D8A3A7 /* MemoCardApp.swift in Sources */,
+				0BEACD7D29BF5CC5004413B0 /* MemoCardWidget.swift in Sources */,
+				0BEACD7F29BF68E7004413B0 /* Contact.swift in Sources */,
+				0BEACD8129BF6ADB004413B0 /* ContactViewModel.swift in Sources */,
 				0B0CE96D2966AF5B00D8A3A7 /* CameraService+Extensions.swift in Sources */,
 				0BCF033F2979BF1900F6F81B /* ResultPreview.swift in Sources */,
 				0BCF03422979C23900F6F81B /* TextRecognizerViewModel.swift in Sources */,
+				0BEACD8329C0539F004413B0 /* Color+Extensions.swift in Sources */,
 				0B8E17F52966C5C400780ADC /* CameraPreview.swift in Sources */,
 				0BCF02F629794B6300F6F81B /* CardModel.swift in Sources */,
 				0B8E17F32966C21F00780ADC /* CameraViewModel.swift in Sources */,
@@ -293,6 +318,9 @@
 				0BCF02E9297944E400F6F81B /* MemoCardWidgetBundle.swift in Sources */,
 				0BCF02EB297944E400F6F81B /* MemoCardWidget.swift in Sources */,
 				0BCF02F729794B6300F6F81B /* CardModel.swift in Sources */,
+				0BEACD7B29BF1B2F004413B0 /* CorePersistence.xcdatamodeld in Sources */,
+				0BEACD8429C0539F004413B0 /* Color+Extensions.swift in Sources */,
+				0BEACD7C29BF1B31004413B0 /* CoreDataService.swift in Sources */,
 				0BCF03432979C23900F6F81B /* TextRecognizerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,7 +471,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -481,7 +509,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -507,6 +535,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LVBMDY357W;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MemoCardWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MemoCardWidget;
@@ -535,6 +565,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LVBMDY357W;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MemoCardWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MemoCardWidget;
@@ -590,9 +622,9 @@
 		0BE8923729AF60910051D64E /* CorePersistence.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				0BE8923829AF60910051D64E /* CorePersistence.xcdatamodel */,
+				0BE8923829AF60910051D64E /*  */,
 			);
-			currentVersion = 0BE8923829AF60910051D64E /* CorePersistence.xcdatamodel */;
+			currentVersion = 0BE8923829AF60910051D64E /*  */;
 			path = CorePersistence.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

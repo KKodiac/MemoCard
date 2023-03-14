@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ResultPreview: View {
-    @ObservedObject var cameraViewModel: Camera.ViewModel
-    @State private var results: [String] = []
+    @FocusState private var fieldFocused: Bool
+    @ObservedObject var viewModel: Camera.ViewModel
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
         ZStack {
             VStack {
@@ -18,13 +20,7 @@ struct ResultPreview: View {
             }
             VStack {
                 Spacer()
-                Button(action: { print("\(cameraViewModel.card.name)") }, label: {
-                    HStack{
-                        Spacer()
-                        Text("Submit").padding()
-                        Spacer()
-                    }
-                })
+                submitButton()
                 .padding()
                 .buttonStyle(.borderedProminent)
             }
@@ -43,20 +39,20 @@ extension ResultPreview {
                 GeometryReader { geometry in
                     HStack(alignment: .top) {
                         VStack(alignment: .leading) {
-                            Text("\(cameraViewModel.card.name)").font(.title)
+                            Text("\(viewModel.card.name)").font(.title)
                                 .dropDestination(for: TextItem.self) { items, location in
-                                    cameraViewModel.card.name = items.first?.text ?? "Name"
+                                    viewModel.card.name = items.first?.text ?? "Name"
                                     return true
                                 }
                             Spacer()
-                            Text("\(cameraViewModel.card.title)")
+                            Text("\(viewModel.card.title)")
                                 .dropDestination(for: TextItem.self) { items, location in
-                                    cameraViewModel.card.title = items.first?.text ?? "Title"
+                                    viewModel.card.title = items.first?.text ?? "Title"
                                     return true
                                 }
-                            Text("\(cameraViewModel.card.subtitle)")
+                            Text("\(viewModel.card.subtitle)")
                                 .dropDestination(for: TextItem.self) { items, location in
-                                    cameraViewModel.card.subtitle = items.first?.text ?? "Subtitle"
+                                    viewModel.card.subtitle = items.first?.text ?? "Subtitle"
                                     return true
                                 }
                         }
@@ -65,19 +61,19 @@ extension ResultPreview {
                             Spacer()
                             VStack(alignment: .trailing) {
                                 Spacer()
-                                Text("\(cameraViewModel.card.phone)")
+                                Text("\(viewModel.card.phone)")
                                     .dropDestination(for: TextItem.self) { items, location in
-                                        cameraViewModel.card.phone = items.first?.text ?? "Phone Number"
+                                        viewModel.card.phone = items.first?.text ?? "Phone Number"
                                         return true
                                     }
-                                Text("\(cameraViewModel.card.email)")
+                                Text("\(viewModel.card.email)")
                                     .dropDestination(for: TextItem.self) { items, location in
-                                        cameraViewModel.card.email = items.first?.text ?? "Email"
+                                        viewModel.card.email = items.first?.text ?? "Email"
                                         return true
                                     }
-                                Text("\(cameraViewModel.card.address)")
+                                Text("\(viewModel.card.address)")
                                     .dropDestination(for: TextItem.self) { items, location in
-                                        cameraViewModel.card.address = items.first?.text ?? "Address"
+                                        viewModel.card.address = items.first?.text ?? "Address"
                                         return true
                                     }
                             }
@@ -87,16 +83,32 @@ extension ResultPreview {
                     .padding()
                     .frame(width: geometry.size.width, height: geometry.size.height)
                 }
-            }.padding()
+            }
+            .padding()
     }
     
     private func resultList() -> some View {
-        List($results, id: \.self) { result in
+        List($viewModel.results, id: \.self) { result in
             TextField("Instructions", text: result)
+                .focused($fieldFocused)
                 .draggable(TextItem(text: result.wrappedValue))
+                .disabled(fieldFocused ? false : true)
         }
-        .onReceive(cameraViewModel.service.publisher, perform: { (output: [String]) in
-            self.results = output
+        .onReceive(viewModel.service.publisher, perform: { (output: [String]) in
+            viewModel.results = output
+        })
+    }
+    
+    private func submitButton() -> some View {
+        Button(action: {
+            viewModel.submit()
+            dismiss()
+        }, label: {
+            HStack{
+                Spacer()
+                Text("Submit").padding()
+                Spacer()
+            }
         })
     }
 }
@@ -118,6 +130,6 @@ extension ResultPreview.TextItem: Transferable {
 
 struct ResultPreview_Previews: PreviewProvider {
     static var previews: some View {
-        ResultPreview(cameraViewModel: Camera.ViewModel.init())
+        ResultPreview(viewModel: Camera.ViewModel.init())
     }
 }

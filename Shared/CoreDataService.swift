@@ -11,11 +11,14 @@ class CoreDataService {
     static let shared = CoreDataService()
 
     private init() {}
-
-    // MARK: - Core Data stack
-
+    
     lazy var persistentContainer: NSPersistentContainer = {
+        let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.seanhong2000.KKodiac.Memo")!
+        let storeURL = containerURL.appendingPathComponent("CorePersistence.sqlite")
+        let description = NSPersistentStoreDescription(url: storeURL)
+        
         let container = NSPersistentContainer(name: "CorePersistence")
+        container.persistentStoreDescriptions = [description]
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -48,12 +51,21 @@ class CoreDataService {
         }
     }
     
-    func insertData(card: CardModel) {
+    func insertData(_ card: CardModel) {
         let context = persistentContainer.viewContext
+        
         if let entity = NSEntityDescription.entity(forEntityName: "Card", in: context) {
             let object = NSManagedObject(entity: entity, insertInto: context)
             object.setValue(card.name, forKey: "name")
+            object.setValue(card.title, forKey: "title")
+            object.setValue(card.subtitle, forKey: "subtitle")
+            object.setValue(card.company, forKey: "company")
+            object.setValue(card.phone, forKey: "phone")
+            object.setValue(card.email, forKey: "email")
+            object.setValue(card.address, forKey: "address")
+            object.setValue(card.imageURL, forKey: "imageURL")
         }
+        
         do {
             try context.save()
         } catch let error as NSError {
@@ -61,16 +73,23 @@ class CoreDataService {
         }
     }
     
-    func fetchData() -> [Card] {
+    func fetchCards() -> [CardModel] {
         let context = persistentContainer.viewContext
         let request: NSFetchRequest<Card> = Card.fetchRequest()
         
         do {
             let object = try context.fetch(request)
-            return object
+            let cards = object.map{ CardModel(card: $0) }
+            return cards
         } catch let error as NSError {
             print("Error fetching cards. \(error.localizedDescription)")
             return []
         }
+    }
+    
+    func fetchCard(_ index: Int) -> CardModel {
+        let cards = self.fetchCards()
+        let card = cards[index]
+        return card
     }
 }

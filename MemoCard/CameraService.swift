@@ -60,6 +60,7 @@ public final class CameraService: NSObject, ObservableObject {
     private let currentSessionOutput = AVCaptureVideoDataOutput()
     private let currentSessionPhotoOutput = AVCapturePhotoOutput()
     private var cameraStatus = CameraStatus.unconfigured
+    private var supportedMaxPhotoDimensions: [CMVideoDimensions] = []
     
     private override init() {
         super.init()
@@ -124,9 +125,10 @@ public final class CameraService: NSObject, ObservableObject {
             cameraStatus = .failed
             return false
         }
-        
+        supportedMaxPhotoDimensions = camera.activeFormat.supportedMaxPhotoDimensions
         session.beginConfiguration()
         defer { session.commitConfiguration() }
+        
         
         do {
             let cameraInput = try AVCaptureDeviceInput(device: camera)
@@ -157,7 +159,7 @@ public final class CameraService: NSObject, ObservableObject {
         defer { session.commitConfiguration() }
         
         session.addOutput(currentSessionPhotoOutput)
-        currentSessionPhotoOutput.isHighResolutionCaptureEnabled = true
+        currentSessionPhotoOutput.maxPhotoDimensions = supportedMaxPhotoDimensions.first!
         currentSessionPhotoOutput.maxPhotoQualityPrioritization = .quality
         let cameraOutput = currentSessionPhotoOutput.connection(with: .video)
         cameraOutput?.videoOrientation = .portrait

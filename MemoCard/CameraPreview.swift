@@ -13,9 +13,7 @@ import os
 
 private let logger = Logger(subsystem: "com.seanhong.KKodiac.MemoCard", category: "CameraPreview")
 
-struct CameraPreview: UIViewRepresentable {
-    let previewViewCornerRadius: CGFloat = 50
-    
+struct CameraPreview: UIViewRepresentable {    
     class PreviewView: UIView {
         
         var videoPreviewLayer: AVCaptureVideoPreviewLayer {
@@ -49,7 +47,6 @@ struct CameraPreview: UIViewRepresentable {
         let view = PreviewView()
         view.videoPreviewLayer.session = session
         view.backgroundColor = .black
-        view.videoPreviewLayer.cornerRadius = previewViewCornerRadius
         view.videoPreviewLayer.connection?.videoOrientation = .portrait
         
         return view

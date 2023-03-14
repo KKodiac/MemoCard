@@ -11,36 +11,39 @@ import CoreData
 
 struct Provider: TimelineProvider {
     let date = Date()
-    
     func placeholder(in context: Context) -> MemoCardEntry {
         MemoCardEntry(date: Date())
     }
 
     func getSnapshot(in context: Context, completion: @escaping (MemoCardEntry) -> ()) {
-        let entry = MemoCardEntry(date: Date())
+        let entry = MemoCardEntry(
+            date: Date(),
+            cards: [CardModel.mock()]
+        )
+        
         completion(entry)
     }
     
-    // After requesting the initial snapshot, WidgetKit calls getTimeline to request a regular timeline from the provider.
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [MemoCardEntry] = []
-        
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = MemoCardEntry(date: entryDate)
-            entries.append(entry)
-        }
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
+        let allCards = CoreDataService.shared.fetchCards()
+        let cards = allCards.prefix(upTo: allCards.count < 5 ? allCards.count : 5).map { $0 }
+        let entry = MemoCardEntry(date: currentDate, cards: cards)
+        entries.append(entry)
+        
+        let timeline = Timeline(entries: entries, policy: .never)
         completion(timeline)
     }
 }
 
 struct MemoCardEntry: TimelineEntry {
     let date: Date
-    let card: CardModel = CardMock().card
+    let cards: [CardModel]
+    init(date: Date, cards: [CardModel] = [CardModel.mock()]) {
+        self.date = date
+        self.cards = cards
+    }
 }
 
 struct MemoCardWidgetEntryView: View {
@@ -51,42 +54,42 @@ struct MemoCardWidgetEntryView: View {
     var body: some View {
         switch family {
         case .systemMedium:
-            VStack {
-                Text(entry.date, style: .time)
-                Text(entry.card.name)
-                Text(entry.card.email)
-                Text(entry.card.company)
-                Text(entry.card.phone)
-                Image(systemName: "person")
-            }
-        case .systemLarge:
-            VStack {
-                Text(entry.date, style: .time)
-                Text(entry.card.name)
-                Text(entry.card.email)
-                Text(entry.card.company)
-                Text(entry.card.phone)
-                Image(systemName: "person")
-            }
+            mediumCardView
         default:
-            VStack {
-                Text(entry.date, style: .time)
-                Text(entry.card.name)
-                Text(entry.card.email)
-                Text(entry.card.company)
-                Text(entry.card.phone)
-                Image(systemName: "person")
+            Text(entry.cards.first!.name)
+        }
+    }
+    
+    @ViewBuilder
+    var mediumCardView: some View {
+        ZStack {
+            HStack {
+                ForEach(0..<entry.cards.count) { index in
+                    Link(destination: URL(string: "widget://link1")!) {
+                        Circle()
+                            .fill(.cyan.shadow(.inner(color: .sapphire, radius: 5)))
+                            .opacity(0.6)
+                            .shadow(radius: 50, x: 5, y: 5)
+                            .overlay {
+                                Text(entry.cards[index].name).foregroundColor(.white).bold()
+                            }
+                    }
+                }
             }
         }
+        .padding()
     }
 }
 
 struct MemoCardWidget: Widget {
     let kind: String = "MemoCardWidget"
+    
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             MemoCardWidgetEntryView(entry: entry)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color("WidgetBackground"))
         }
         .configurationDisplayName("MemoCard")
         .description("This is a widget used for MemoCard.")

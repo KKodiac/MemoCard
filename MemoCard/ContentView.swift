@@ -9,7 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        CameraView()
+        TabView {
+            Camera()
+                .tabItem {
+                    Label("Camera", systemImage: "camera.fill")
+                }
+            Contact()
+                .tabItem {
+                    Label("Contact", systemImage: "person.crop.circle.fill")
+                }
+        }
     }
 }
 

@@ -5,6 +5,7 @@
 	<key>com.apple.security.application-groups</key>
 	<array>
 		<string>group.com.seanhong2000.KKodiac.MemoCard</string>
+		<string>group.com.seanhong2000.KKodiac.Memo</string>
 	</array>
 </dict>
 </plist>
