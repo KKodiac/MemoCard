@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct CardModel: Identifiable {
-    var id = UUID()
+struct SnapCard: Decodable, Hashable, Identifiable {
+    var id: Int16
     var name: String
     var title: String
     var subtitle: String
@@ -18,7 +18,8 @@ struct CardModel: Identifiable {
     var address: String
     var imageURL: String?
     
-    init(name: String = "Name",
+    init(id: Int16 = 0,
+         name: String = "Name",
          title: String = "Title",
          subtitle: String = "Subtitle",
          company: String = "Company",
@@ -26,6 +27,7 @@ struct CardModel: Identifiable {
          email: String = "Email",
          address: String = "Address",
          imageURL: String? = nil) {
+        self.id = id
         self.name = name
         self.title = title
         self.subtitle = subtitle
@@ -37,6 +39,7 @@ struct CardModel: Identifiable {
     }
     
     init(card: Card) {
+        self.id = card.id
         self.name = card.name!
         self.title = card.title!
         self.subtitle = card.subtitle!
@@ -48,20 +51,21 @@ struct CardModel: Identifiable {
     }
     
     var description: String {
-        return "\(self.name) \(self.title) \(self.subtitle) \(self.company) \(self.phone) \(self.email) \(self.address) \(String(describing: self.imageURL))"
+        return "\(self)"
     }
 }
 
 
-extension CardModel {
+extension SnapCard {
     static func mock() -> Self {
-        return CardModel(name: "Name",
-                         title: "Title",
-                         subtitle: "Subtitle",
-                         company: "Company",
-                         phone: "Phone",
-                         email: "Email",
-                         address: "Address",
-                         imageURL: nil)
+        return SnapCard(id: 0,
+                        name: "Name",
+                        title: "Title",
+                        subtitle: "Subtitle",
+                        company: "Company",
+                        phone: "Phone",
+                        email: "Email",
+                        address: "Address",
+                        imageURL: nil)
     }
 }

@@ -9,12 +9,9 @@ import SwiftUI
 
 @main
 struct MemoCardApp: App {
-    let service = CoreDataService.shared
-    
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, service.persistentContainer.viewContext)
         }
     }
 }

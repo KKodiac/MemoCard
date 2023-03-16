@@ -14,10 +14,10 @@ class CoreDataService {
     
     lazy var persistentContainer: NSPersistentContainer = {
         let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.seanhong2000.KKodiac.Memo")!
-        let storeURL = containerURL.appendingPathComponent("CorePersistence.sqlite")
+        let storeURL = containerURL.appendingPathComponent("Model.sqlite")
         let description = NSPersistentStoreDescription(url: storeURL)
         
-        let container = NSPersistentContainer(name: "CorePersistence")
+        let container = NSPersistentContainer(name: "Model")
         container.persistentStoreDescriptions = [description]
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
@@ -51,11 +51,12 @@ class CoreDataService {
         }
     }
     
-    func insertData(_ card: CardModel) {
+    func insertData(_ card: SnapCard) {
         let context = persistentContainer.viewContext
         
         if let entity = NSEntityDescription.entity(forEntityName: "Card", in: context) {
             let object = NSManagedObject(entity: entity, insertInto: context)
+            object.setValue(card.id, forKey: "id")
             object.setValue(card.name, forKey: "name")
             object.setValue(card.title, forKey: "title")
             object.setValue(card.subtitle, forKey: "subtitle")
@@ -73,13 +74,13 @@ class CoreDataService {
         }
     }
     
-    func fetchCards() -> [CardModel] {
+    func fetchCards() -> [SnapCard] {
         let context = persistentContainer.viewContext
         let request: NSFetchRequest<Card> = Card.fetchRequest()
         
         do {
             let object = try context.fetch(request)
-            let cards = object.map{ CardModel(card: $0) }
+            let cards = object.map{ SnapCard(card: $0) }
             return cards
         } catch let error as NSError {
             print("Error fetching cards. \(error.localizedDescription)")
@@ -87,8 +88,11 @@ class CoreDataService {
         }
     }
     
-    func fetchCard(_ index: Int) -> CardModel {
+    func fetchCard(_ index: Int) -> SnapCard? {
         let cards = self.fetchCards()
+        if cards.isEmpty {
+            return nil
+        }
         let card = cards[index]
         return card
     }

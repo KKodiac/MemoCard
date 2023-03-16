@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ResultPreview: View {
     @FocusState private var fieldFocused: Bool
@@ -15,25 +16,25 @@ struct ResultPreview: View {
     var body: some View {
         ZStack {
             VStack {
-                cardView()
-                resultList()
+                cardView
+                resultList
             }
             VStack {
                 Spacer()
-                submitButton()
-                .padding()
-                .buttonStyle(.borderedProminent)
+                submitButton
+                    .padding()
+                    .buttonStyle(.borderedProminent)
             }
         }
     }
 }
 
 extension ResultPreview {
-    private func cardView() -> some View {
+    @ViewBuilder
+    private var cardView: some View {
         RoundedRectangle(cornerRadius: 20, style: .circular)
-            .fill(.cyan)
-            .opacity(0.3)
-            .shadow(radius: 50, x: 5, y: 5)
+            .fill(Color.columbiaBlue)
+            .shadow(radius: 10, x: 5, y: 5)
             .frame(maxHeight: 200)
             .overlay(alignment: .topLeading) {
                 GeometryReader { geometry in
@@ -87,7 +88,8 @@ extension ResultPreview {
             .padding()
     }
     
-    private func resultList() -> some View {
+    @ViewBuilder
+    private var resultList: some View {
         List($viewModel.results, id: \.self) { result in
             TextField("Instructions", text: result)
                 .focused($fieldFocused)
@@ -99,7 +101,8 @@ extension ResultPreview {
         })
     }
     
-    private func submitButton() -> some View {
+    @ViewBuilder
+    private var submitButton: some View {
         Button(action: {
             viewModel.submit()
             dismiss()

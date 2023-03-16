@@ -16,26 +16,28 @@
 		0B8E17F32966C21F00780ADC /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E17F22966C21F00780ADC /* CameraViewModel.swift */; };
 		0B8E17F52966C5C400780ADC /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E17F42966C5C400780ADC /* CameraPreview.swift */; };
 		0B8E17F72966C88100780ADC /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E17F62966C88100780ADC /* CameraView.swift */; };
+		0BC50F3329C21F9F008FBEEC /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0BC50F3129C21F9F008FBEEC /* Model.xcdatamodeld */; };
+		0BC50F3429C21F9F008FBEEC /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0BC50F3129C21F9F008FBEEC /* Model.xcdatamodeld */; };
 		0BCF02E5297944E400F6F81B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BCF02B32979404300F6F81B /* WidgetKit.framework */; };
 		0BCF02E6297944E400F6F81B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BCF02B52979404300F6F81B /* SwiftUI.framework */; };
 		0BCF02E9297944E400F6F81B /* MemoCardWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF02E8297944E400F6F81B /* MemoCardWidgetBundle.swift */; };
 		0BCF02EB297944E400F6F81B /* MemoCardWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF02EA297944E400F6F81B /* MemoCardWidget.swift */; };
 		0BCF02ED297944E600F6F81B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BCF02EC297944E600F6F81B /* Assets.xcassets */; };
 		0BCF02F1297944E600F6F81B /* MemoCardWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0BCF02E4297944E400F6F81B /* MemoCardWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		0BCF02F629794B6300F6F81B /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF02F529794B6300F6F81B /* CardModel.swift */; };
-		0BCF02F729794B6300F6F81B /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF02F529794B6300F6F81B /* CardModel.swift */; };
+		0BCF02F629794B6300F6F81B /* SnapCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF02F529794B6300F6F81B /* SnapCard.swift */; };
+		0BCF02F729794B6300F6F81B /* SnapCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF02F529794B6300F6F81B /* SnapCard.swift */; };
 		0BCF033F2979BF1900F6F81B /* ResultPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF033E2979BF1900F6F81B /* ResultPreview.swift */; };
 		0BCF03422979C23900F6F81B /* TextRecognizerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF03412979C23900F6F81B /* TextRecognizerViewModel.swift */; };
 		0BCF03432979C23900F6F81B /* TextRecognizerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF03412979C23900F6F81B /* TextRecognizerViewModel.swift */; };
-		0BE8923929AF60910051D64E /* CorePersistence.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0BE8923729AF60910051D64E /* CorePersistence.xcdatamodeld */; };
 		0BE8923B29AF612A0051D64E /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE8923A29AF612A0051D64E /* CoreDataService.swift */; };
-		0BEACD7B29BF1B2F004413B0 /* CorePersistence.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0BE8923729AF60910051D64E /* CorePersistence.xcdatamodeld */; };
 		0BEACD7C29BF1B31004413B0 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE8923A29AF612A0051D64E /* CoreDataService.swift */; };
 		0BEACD7D29BF5CC5004413B0 /* MemoCardWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF02EA297944E400F6F81B /* MemoCardWidget.swift */; };
 		0BEACD7F29BF68E7004413B0 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEACD7E29BF68E7004413B0 /* Contact.swift */; };
 		0BEACD8129BF6ADB004413B0 /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEACD8029BF6ADB004413B0 /* ContactViewModel.swift */; };
 		0BEACD8329C0539F004413B0 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEACD8229C0539F004413B0 /* Color+Extensions.swift */; };
 		0BEACD8429C0539F004413B0 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEACD8229C0539F004413B0 /* Color+Extensions.swift */; };
+		0BEACD8929C1AF8C004413B0 /* SnapCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEACD8829C1AF8C004413B0 /* SnapCarouselView.swift */; };
+		0BEACD8A29C1AF8C004413B0 /* SnapCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEACD8829C1AF8C004413B0 /* SnapCarouselView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		0B8E17F22966C21F00780ADC /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		0B8E17F42966C5C400780ADC /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		0B8E17F62966C88100780ADC /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		0BC50F3229C21F9F008FBEEC /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		0BC50F3529C2202E008FBEEC /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		0BCF02B32979404300F6F81B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		0BCF02B52979404300F6F81B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		0BCF02E4297944E400F6F81B /* MemoCardWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MemoCardWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,15 +84,15 @@
 		0BCF02EA297944E400F6F81B /* MemoCardWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCardWidget.swift; sourceTree = "<group>"; };
 		0BCF02EC297944E600F6F81B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BCF02EE297944E600F6F81B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0BCF02F529794B6300F6F81B /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		0BCF02F529794B6300F6F81B /* SnapCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapCard.swift; sourceTree = "<group>"; };
 		0BCF033E2979BF1900F6F81B /* ResultPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPreview.swift; sourceTree = "<group>"; };
 		0BCF03412979C23900F6F81B /* TextRecognizerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizerViewModel.swift; sourceTree = "<group>"; };
 		0BCF03452979C89100F6F81B /* MemoCard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MemoCard.entitlements; sourceTree = "<group>"; };
-		0BE8923829AF60910051D64E /*  */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodeld; name = ""; sourceTree = "<group>"; };
 		0BE8923A29AF612A0051D64E /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		0BEACD7E29BF68E7004413B0 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		0BEACD8029BF6ADB004413B0 /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
 		0BEACD8229C0539F004413B0 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		0BEACD8829C1AF8C004413B0 /* SnapCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapCarouselView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,9 +149,9 @@
 				0BEACD7E29BF68E7004413B0 /* Contact.swift */,
 				0BCF03412979C23900F6F81B /* TextRecognizerViewModel.swift */,
 				0BCF033E2979BF1900F6F81B /* ResultPreview.swift */,
-				0B0CE95F296692C000D8A3A7 /* Assets.xcassets */,
 				0B0CE961296692C000D8A3A7 /* Preview Content */,
 				0BEACD8029BF6ADB004413B0 /* ContactViewModel.swift */,
+				0BEACD8829C1AF8C004413B0 /* SnapCarouselView.swift */,
 			);
 			path = MemoCard;
 			sourceTree = "<group>";
@@ -155,6 +159,7 @@
 		0B0CE961296692C000D8A3A7 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				0B0CE95F296692C000D8A3A7 /* Assets.xcassets */,
 				0B0CE962296692C000D8A3A7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -183,9 +188,9 @@
 		0BEACD7A29BF1AF0004413B0 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				0BE8923729AF60910051D64E /* CorePersistence.xcdatamodeld */,
+				0BC50F3129C21F9F008FBEEC /* Model.xcdatamodeld */,
 				0BE8923A29AF612A0051D64E /* CoreDataService.swift */,
-				0BCF02F529794B6300F6F81B /* CardModel.swift */,
+				0BCF02F529794B6300F6F81B /* SnapCard.swift */,
 				0BEACD8229C0539F004413B0 /* Color+Extensions.swift */,
 			);
 			path = Shared;
@@ -209,6 +214,8 @@
 				0BCF02F0297944E600F6F81B /* PBXTargetDependency */,
 			);
 			name = MemoCard;
+			packageProductDependencies = (
+			);
 			productName = MemoCard;
 			productReference = 0B0CE958296692BF00D8A3A7 /* MemoCard.app */;
 			productType = "com.apple.product-type.application";
@@ -257,6 +264,8 @@
 				Base,
 			);
 			mainGroup = 0B0CE94F296692BF00D8A3A7;
+			packageReferences = (
+			);
 			productRefGroup = 0B0CE959296692BF00D8A3A7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -295,9 +304,10 @@
 				0B0CE95E296692BF00D8A3A7 /* ContentView.swift in Sources */,
 				0BE8923B29AF612A0051D64E /* CoreDataService.swift in Sources */,
 				0B8E17F72966C88100780ADC /* CameraView.swift in Sources */,
-				0BE8923929AF60910051D64E /* CorePersistence.xcdatamodeld in Sources */,
 				0B0CE95C296692BF00D8A3A7 /* MemoCardApp.swift in Sources */,
+				0BC50F3329C21F9F008FBEEC /* Model.xcdatamodeld in Sources */,
 				0BEACD7D29BF5CC5004413B0 /* MemoCardWidget.swift in Sources */,
+				0BEACD8929C1AF8C004413B0 /* SnapCarouselView.swift in Sources */,
 				0BEACD7F29BF68E7004413B0 /* Contact.swift in Sources */,
 				0BEACD8129BF6ADB004413B0 /* ContactViewModel.swift in Sources */,
 				0B0CE96D2966AF5B00D8A3A7 /* CameraService+Extensions.swift in Sources */,
@@ -305,7 +315,7 @@
 				0BCF03422979C23900F6F81B /* TextRecognizerViewModel.swift in Sources */,
 				0BEACD8329C0539F004413B0 /* Color+Extensions.swift in Sources */,
 				0B8E17F52966C5C400780ADC /* CameraPreview.swift in Sources */,
-				0BCF02F629794B6300F6F81B /* CardModel.swift in Sources */,
+				0BCF02F629794B6300F6F81B /* SnapCard.swift in Sources */,
 				0B8E17F32966C21F00780ADC /* CameraViewModel.swift in Sources */,
 				0B0CE96B2966962A00D8A3A7 /* CameraService.swift in Sources */,
 			);
@@ -317,8 +327,9 @@
 			files = (
 				0BCF02E9297944E400F6F81B /* MemoCardWidgetBundle.swift in Sources */,
 				0BCF02EB297944E400F6F81B /* MemoCardWidget.swift in Sources */,
-				0BCF02F729794B6300F6F81B /* CardModel.swift in Sources */,
-				0BEACD7B29BF1B2F004413B0 /* CorePersistence.xcdatamodeld in Sources */,
+				0BCF02F729794B6300F6F81B /* SnapCard.swift in Sources */,
+				0BEACD8A29C1AF8C004413B0 /* SnapCarouselView.swift in Sources */,
+				0BC50F3429C21F9F008FBEEC /* Model.xcdatamodeld in Sources */,
 				0BEACD8429C0539F004413B0 /* Color+Extensions.swift in Sources */,
 				0BEACD7C29BF1B31004413B0 /* CoreDataService.swift in Sources */,
 				0BCF03432979C23900F6F81B /* TextRecognizerViewModel.swift in Sources */,
@@ -619,13 +630,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		0BE8923729AF60910051D64E /* CorePersistence.xcdatamodeld */ = {
+		0BC50F3129C21F9F008FBEEC /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				0BE8923829AF60910051D64E /*  */,
+				0BC50F3529C2202E008FBEEC /* Model 2.xcdatamodel */,
+				0BC50F3229C21F9F008FBEEC /* Model.xcdatamodel */,
 			);
-			currentVersion = 0BE8923829AF60910051D64E /*  */;
-			path = CorePersistence.xcdatamodeld;
+			currentVersion = 0BC50F3229C21F9F008FBEEC /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

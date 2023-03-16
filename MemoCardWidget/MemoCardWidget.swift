@@ -18,7 +18,7 @@ struct Provider: TimelineProvider {
     func getSnapshot(in context: Context, completion: @escaping (MemoCardEntry) -> ()) {
         let entry = MemoCardEntry(
             date: Date(),
-            cards: [CardModel.mock()]
+            cards: [SnapCard.mock()]
         )
         
         completion(entry)
@@ -28,7 +28,7 @@ struct Provider: TimelineProvider {
         var entries: [MemoCardEntry] = []
         let currentDate = Date()
         let allCards = CoreDataService.shared.fetchCards()
-        let cards = allCards.prefix(upTo: allCards.count < 5 ? allCards.count : 5).map { $0 }
+        let cards = allCards.prefix(upTo: allCards.count < 4 ? allCards.count : 4).map { $0 }
         let entry = MemoCardEntry(date: currentDate, cards: cards)
         entries.append(entry)
         
@@ -39,8 +39,8 @@ struct Provider: TimelineProvider {
 
 struct MemoCardEntry: TimelineEntry {
     let date: Date
-    let cards: [CardModel]
-    init(date: Date, cards: [CardModel] = [CardModel.mock()]) {
+    let cards: [SnapCard]
+    init(date: Date, cards: [SnapCard] = [SnapCard.mock()]) {
         self.date = date
         self.cards = cards
     }
@@ -65,7 +65,7 @@ struct MemoCardWidgetEntryView: View {
         ZStack {
             HStack {
                 ForEach(0..<entry.cards.count) { index in
-                    Link(destination: URL(string: "widget://link1")!) {
+                    Link(destination: URL(string: "\(index)")!) {
                         Circle()
                             .fill(.cyan.shadow(.inner(color: .sapphire, radius: 5)))
                             .opacity(0.6)
